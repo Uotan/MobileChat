@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileChat.MessagePage"
+             xmlns:local="clr-namespace:MobileChat"
+             Style="{StaticResource cntPageColor}">
+
+    
+        <StackLayout Grid.Row="1">
+            <CollectionView x:Name="collectionView"
+                    SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="2"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding from_whom}" FontSize="Small"></Label>
+                                <Label Text=": " FontSize="Small"></Label>
+                                <Label Text="{Binding content}" FontSize="Small"></Label>
+                            </StackLayout>
+
+                            <Label Text="{Binding datetime}" TextColor="{DynamicResource colorEntryPlaceholder}"  FontSize="Small"></Label>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+            <Entry x:Name="tbMess" Placeholder="Text message" HorizontalTextAlignment="Start" Completed="tbMess_Completed"/>
+        </StackLayout>
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileChat.ChangeInfo"
+             xmlns:local="clr-namespace:MobileChat"
+             Style="{StaticResource cntPageColor}">
+    <StackLayout Spacing="5">
+        <Image Grid.Column="1" Source="{local:ImageResourceExt MobileChat.Image.editIcon.png}" HeightRequest="100"/>
+        
+        <Entry x:Name="entrActPass" Placeholder="Actual password" IsPassword="True" />
+        <Entry x:Name="entrNewPass1" Placeholder="New password" IsPassword="True"/>
+        <Entry x:Name="entrNewPass2" Placeholder="Repeat new password" IsPassword="True"/>
+        <Button Margin="10,10,10,10" Text="Change password" Clicked="btChangePassw_Clicked"/>
+    </StackLayout>
+    
+</ContentPage>

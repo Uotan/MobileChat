@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileChat.MainPage"
+             xmlns:local="clr-namespace:MobileChat" 
+             Visual="Material"
+             Style="{StaticResource cntPageColor}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="LightTheme" Text="Светлая тема" Order="Secondary" Priority="0" Clicked="LightTheme_Clicked"/>
+        <ToolbarItem x:Name="DarkTheme" Text="Темная тема" Order="Secondary" Priority="1" Clicked="DarkTheme_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Padding="10,60,10,20" Orientation="Vertical" Spacing="10" VerticalOptions="Center">
+
+        <Image Source="{local:ImageResourceExt MobileChat.Image.personIcon.png}" HeightRequest="150"/>
+        <Label Text="Enter your data" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+        <Entry x:Name="tbLogin" HorizontalTextAlignment="Start"  Placeholder="Enter login" />
+        <Entry x:Name="tbPassword" HorizontalTextAlignment="Start" Placeholder="Enter password" IsPassword="True"/>
+
+        <Button Text="Login" Clicked="btnLog_Clicked"/>
+        <Label Text="or" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+        <Button Text="Registration" Clicked="btnReg_Clicked"/>
+    </StackLayout>
+</ContentPage>
+

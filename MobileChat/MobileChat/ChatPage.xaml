@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileChat.ChatPage"
+             xmlns:local="clr-namespace:MobileChat"
+             Style="{StaticResource cntPageColor}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="findUser" Text="Найти пользователя" Order="Primary" Priority="0" Clicked="findUser_Clicked"/>
+        <ToolbarItem x:Name="changeUserInfo" Text="Изменить пароль" Order="Secondary" Priority="0" Clicked="changeUserInfo_Clicked_1"/>
+        <ToolbarItem x:Name="LightTheme" Text="Светлая тема" Order="Secondary" Priority="0" Clicked="LightTheme_Clicked"/>
+        <ToolbarItem x:Name="DarkTheme" Text="Темная тема" Order="Secondary" Priority="1" Clicked="DarkTheme_Clicked"/>
+        <ToolbarItem x:Name="exitBtn" Text="Выход" Order="Secondary" Priority="1" Clicked="exitBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+        <StackLayout Grid.Row="1">
+            <ListView x:Name="usersList" SelectionMode="None" ItemTapped="usersList_ItemTapped" SeparatorColor="{DynamicResource colorEntryPlaceholder}" BackgroundColor="{DynamicResource colorBackgroundMain}"/>
+        </StackLayout>
+
+   
+   
+    
+</ContentPage>
