@@ -12,6 +12,9 @@ using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using static MobileChat.Modules.WebClientModules;
+using System.Diagnostics;
+using Xamarin.Essentials;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace MobileChat
 {
@@ -97,6 +100,14 @@ namespace MobileChat
                 string answer = WebClientModules.SendMessageMethod(idMes, tbMess.Text);
                 tbMess.Text = null;
             }
+        }
+
+        private async void collectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Message messageItem = (Message)e.CurrentSelection.FirstOrDefault();
+            Debug.WriteLine(messageItem.content);
+            await Clipboard.SetTextAsync(messageItem.content);
+            await this.DisplayToastAsync("Text copied",2000);
         }
     }
 }
