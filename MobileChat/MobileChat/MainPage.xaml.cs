@@ -15,10 +15,12 @@ namespace MobileChat
 {
     public partial class MainPage : ContentPage
     {
+
         string serveradress1 = ServerAddress.srvrAddress;
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         private async void btnLog_Clicked(object sender, EventArgs e)

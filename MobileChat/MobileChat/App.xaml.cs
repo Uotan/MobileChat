@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MobileChat.Classes;
 
 namespace MobileChat
 {
@@ -10,12 +11,20 @@ namespace MobileChat
         {
             InitializeComponent();
 
+
+
             NavigationPage mainPage = new NavigationPage(new MainPage())
             {
                 BarBackgroundColor = Color.FromHex("#0E547C"),
                 BarTextColor = Color.White
             };
-
+            Application.Current.RequestedThemeChanged += (object sender, AppThemeChangedEventArgs e) =>
+            {
+                if (e.RequestedTheme == OSAppTheme.Dark)
+                    ThemeClass.SetDark();
+                else
+                    ThemeClass.SetLight();
+            };
 
             MainPage = mainPage;
         }

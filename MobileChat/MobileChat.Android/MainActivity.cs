@@ -24,5 +24,6 @@ namespace MobileChat.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
     }
 }
