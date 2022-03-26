@@ -23,7 +23,7 @@ namespace MobileChat
     public partial class MessagePage : ContentPage
     {
         string idMes;
-        string countOfMessages;
+        int countOfMessages;
         bool firstTime = true;
         ObservableCollection<Message> messagesList = new ObservableCollection<Message>();
 
@@ -50,28 +50,38 @@ namespace MobileChat
                 if (firstTime)
                 {
                     firstTime = false;
-                    messagesList.Clear();
-                    var _searchAnswer = WebClientModules.ShowMessageMethod(idMes);
+                    int countRequest = WebClientModules.getCountOfMessages(idMes);
+                    var _searchAnswer = WebClientModules.ShowMessageMethod(idMes, countRequest);
 
                     if (_searchAnswer!=null)
                     {
-                        collectionView.ItemsSource = _searchAnswer;
+                        foreach (var item in _searchAnswer)
+                        {
+                            messagesList.Add(item);
+                        }
                     }
-                    countOfMessages = _searchAnswer.Count.ToString();
-                    collectionView.ScrollTo(_searchAnswer.Count - 1);
+                    collectionView.ItemsSource = messagesList;
+                    countOfMessages = messagesList.Count;
+                    collectionView.ScrollTo(messagesList.Count - 1);
 
 
                 }
                 else
                 {
-                    var countRequest = WebClientModules.getCountOfMessages(idMes);
+                    int countRequest = WebClientModules.getCountOfMessages(idMes);
+                    
                     if (countOfMessages!=countRequest)
                     {
-                        messagesList.Clear();
-                        var _searchAnswer = WebClientModules.ShowMessageMethod(idMes);
-                        collectionView.ItemsSource = _searchAnswer;
-                        countOfMessages = _searchAnswer.Count.ToString();
-                        collectionView.ScrollTo(_searchAnswer.Count-1);
+                        int fetchCount = countRequest - countOfMessages;
+                        
+
+                        var _searchAnswer = WebClientModules.ShowMessageMethod(idMes, fetchCount);
+                        foreach (var item in _searchAnswer)
+                        {
+                            messagesList.Add(item);
+                        }
+                        countOfMessages = messagesList.Count;
+                        
                     }
                 }
                 

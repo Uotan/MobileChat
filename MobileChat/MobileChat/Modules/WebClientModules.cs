@@ -27,15 +27,16 @@ namespace MobileChat.Modules
             string[] subs = answer.Split(' ');
             return subs;
         }
-        public static string getCountOfMessages(string _userid)
+        public static int getCountOfMessages(string _userid)
         {
-            string answer;
+            int count;
             using (WebClient client = new WebClient())
             {
                 string sendTxt = "http://" + ServerAddress.srvrAddress + "/getCountofMessages.php?userid1="+ ClassStatus.user_id + "&userid2="+_userid;
-                answer = client.DownloadString(sendTxt);
+                var answerString = client.DownloadString(sendTxt);
+                count = Convert.ToInt32(answerString);
             }
-            return answer;
+            return count;
         }
         public static string RegisterMethod(string _login, string _pass)
         {
@@ -85,12 +86,12 @@ namespace MobileChat.Modules
             return answer;
         }
 
-        public static List<Message> ShowMessageMethod(string _userid)
+        public static List<Message> ShowMessageMethod(string _userid,int fetchCount)
         {
             string _searchAnswer;
             using (WebClient client = new WebClient())
             {
-                string sendTxt = "http://" + ServerAddress.srvrAddress + "/message.php?userid1=" + ClassStatus.user_id + "&userid2=" + _userid;
+                string sendTxt = "http://" + ServerAddress.srvrAddress + "/message.php?userid1=" + ClassStatus.user_id + "&userid2=" + _userid + "&count="+fetchCount;
                 _searchAnswer = client.DownloadString(sendTxt);
             }
             //когда сервер возвращал кирилические символы, их нужно было перекодировать, оставлю это здесь на всякий случай
