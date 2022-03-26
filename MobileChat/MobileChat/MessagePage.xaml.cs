@@ -81,7 +81,7 @@ namespace MobileChat
                             messagesList.Add(item);
                         }
                         countOfMessages = messagesList.Count;
-                        
+                        collectionView.ScrollTo(messagesList.Count - 1);
                     }
                 }
                 

@@ -6,7 +6,7 @@ namespace MobileChat.Classes
 {
     public class ServerAddress
     {
-        public static string srvrAddress = "cryptorin.ru";
+        public static string srvrAddress = "cryptorin.ru/oldAPI";
         public static string localAddress = "127.0.0.1";
     }
 }
