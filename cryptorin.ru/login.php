@@ -4,7 +4,7 @@
     $password = addslashes($_GET['password']);
     
     $dbadress = "localhost";
-    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_cryptorin');
+    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_oldchat');
     if($conn->connect_error){
         echo "error";
     }

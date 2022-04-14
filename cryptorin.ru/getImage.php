@@ -14,7 +14,7 @@ if (!$im) {
 }
 
 
-$img_file = 'images//filename.jpg';
+$img_file = '../images//filename.jpg';
 
 
 //imagepng($im, $img_file, 0);
@@ -23,6 +23,6 @@ $img_file = 'images//filename.jpg';
 $success = file_put_contents($img_file, $bin);
 
 
-exec('convert images//filename.jpg -resize 512x512 images//filename.jpg');
+exec('convert ../files//filename.jpg -resize 1024x1024 ../files//filename.jpg');
 
 ?>

@@ -3,7 +3,7 @@
     $passwordOld = $_GET['passwordOld'];
     $passwordNew = $_GET['passwordNew'];
    $dbadress = "localhost";
-    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_cryptorin');
+    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_oldchat');
     $result = $conn->query('SET names "utf8"');
     if($conn->connect_error){
         echo "error";

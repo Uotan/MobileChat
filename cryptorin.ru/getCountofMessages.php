@@ -2,7 +2,7 @@
     $user1 = $_GET['userid1'];
     $user2 = $_GET['userid2'];
     $dbadress = "localhost";
-    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_cryptorin');
+    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_oldchat');
     $result = $conn->query('SET names "utf8"');
     if($conn->connect_error){
         echo "error";

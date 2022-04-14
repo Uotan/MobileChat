@@ -6,7 +6,7 @@
     settype($count, 'integer');
     
     $host = '127.0.0.1';
-    $db   = 'u1621366_cryptorin';
+    $db   = 'u1621366_oldchat';
     $user = 'u1621366_public';
     $pass = 'iD5mC6eT6v';
     $charset = 'utf8';
@@ -20,6 +20,8 @@
     
     $pdo = new PDO($dsn, $user, $pass, $opt);
     
+    $sqlSetNames = "SET names \"utf8mb4\"";
+    $STHsetNames  = $pdo->query($sqlSetNames);
     
     $sqlCountQuery = "SELECT COUNT(*) FROM messages WHERE from_whom = '".$user1."' and for_whom = '".$user2."' OR from_whom = '".$user2."' and for_whom = '".$user1."'";
     $STH_count  = $pdo->query($sqlCountQuery);
@@ -40,8 +42,7 @@
         $array_level['content'] = $user[2];
         return $array_level;
     }
-        $sqlquery = "SELECT `from_whom`,`content`,`datetime` FROM `messages` WHERE from_whom = '".$user1."' and for_whom = '".$user2."' OR from_whom = '".$user2."' and for_whom = '".$user1."' LIMIT ".$deltaMessages.", ".$count;
-
+        $sqlquery = "SELECT `from_whom`,`content`,`datetime` FROM `messages` WHERE from_whom = '".$user1."' and for_whom = '".$user2."' OR from_whom = '".$user2."' and for_whom = '".$user1."' LIMIT 99999999 OFFSET ".$deltaMessages;
         $STH  = $pdo->query($sqlquery);
         $result = $STH->fetchAll();
         $array_level = array();

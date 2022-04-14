@@ -5,7 +5,7 @@
     
     
     $host = '127.0.0.1';
-    $db   = 'u1621366_cryptorin';
+    $db   = 'u1621366_oldchat';
     $user = 'u1621366_public';
     $pass = 'iD5mC6eT6v';
     $charset = 'utf8';

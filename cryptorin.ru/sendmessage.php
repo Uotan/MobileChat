@@ -3,8 +3,8 @@
     $user2 = $_GET['userid2'];
     $content = $_GET['content'];
     $dbadress = "localhost";
-    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_cryptorin');
-    $result = $conn->query('SET names "utf8"');
+    $conn = new mysqli($dbadress, 'u1621366_public', 'iD5mC6eT6v','u1621366_oldchat');
+    $result = $conn->query('SET names "utf8mb4"');
     if($conn->connect_error){
         echo "error";
     }
