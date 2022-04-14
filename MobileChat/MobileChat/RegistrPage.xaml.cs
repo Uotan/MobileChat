@@ -29,8 +29,15 @@ namespace MobileChat
                 try
                 {
                     string result = WebClientModules.RegisterMethod(tbLogin.Text, tbPassw.Text);
-                    await DisplayAlert("Reg", result, "OK");
-                    await Navigation.PushModalAsync(new MainPage());
+                    if (result == "UserCreated")
+                    {
+                        await DisplayAlert("Reg", result, "OK");
+                        await Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Reg", result, "OK");
+                    }
                 }
                 catch (Exception ex)
                 {

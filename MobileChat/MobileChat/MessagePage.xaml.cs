@@ -15,6 +15,7 @@ using static MobileChat.Modules.WebClientModules;
 using System.Diagnostics;
 using Xamarin.Essentials;
 using Xamarin.CommunityToolkit.Extensions;
+using System.Net;
 
 namespace MobileChat
 {
@@ -57,7 +58,12 @@ namespace MobileChat
                     {
                         foreach (var item in _searchAnswer)
                         {
-                            messagesList.Add(item);
+                            Message message = new Message();
+                            message.from_whom = item.from_whom;
+                            message.datetime = item.datetime;
+                            message.content = WebUtility.UrlDecode(item.content);
+                            messagesList.Add(message);
+                            //messagesList.Add(item);
                         }
                     }
                     collectionView.ItemsSource = messagesList;
@@ -107,7 +113,10 @@ namespace MobileChat
         {
             if (tbMess.Text != null || tbMess.Text != "")
             {
-                string answer = WebClientModules.SendMessageMethod(idMes, tbMess.Text);
+                var urlEncodedText = System.Net.WebUtility.UrlEncode(tbMess.Text);
+                string answer = WebClientModules.SendMessageMethod(idMes, urlEncodedText);
+
+                //string answer = WebClientModules.SendMessageMethod(idMes, tbMess.Text);
                 tbMess.Text = null;
             }
         }
